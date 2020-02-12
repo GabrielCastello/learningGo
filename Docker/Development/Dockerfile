@@ -3,14 +3,18 @@ FROM golang:1.13-alpine
 RUN apk add git
 
 RUN go get github.com/cespare/reflex
-RUN go get github.com/cespare/reflex
 RUN export PATH=$PATH:$GOPATH/bin
 
-RUN mkdir /app
-ADD . /app
-WORKDIR /app
-# RUN reflex -r '\.go$' -s -- sh -c "go run main.go"
-RUN go run main.go
+WORKDIR /src/app
+
+RUN ls -la /src/app
+
+CMD reflex -r '\.go$' -s -- sh -c "go run main.go"
+# RUN reflex -r '\.go$' -s -- sh -c "go build -o main . && /app/main"
+# RUN reflex -r '\.go$' -s -- sh -c "go build -o main . && /app/main"
+# RUN go run main.go
 
 
-# CMD ["/app/main"]
+# CMD ["go", "run", "main.go"]
+# CMD ["reflex", "-r", "'\.go$'", "-s", "--", "sh", "c", "'go run main.go'"]
+# CMD ["reflex", "-r", "\.go$", "-s", "--", "sh", "c", "go run main.go"]
