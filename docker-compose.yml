@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  my-go-app:
+    build:
+      context: .
+      dockerfile: ./Docker/Production/Dockerfile
+    ports:
+      - 8080:8081
