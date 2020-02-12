@@ -7,11 +7,10 @@ import (
 )
 
 func main() {
-	fmt.Println("Go Docker Tutorial!")
+	fmt.Println("Go Docker Tutorial!!!!")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello World !!!!!")
-		fmt.Println("Go Docker Tutorial!")
+		fmt.Fprintf(w, "Hello World !!!")
 	})
 
 	log.Fatal(http.ListenAndServe(":8081", nil))
